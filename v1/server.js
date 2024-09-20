@@ -1,22 +1,24 @@
-const express = require("express");
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv/config"; // This loads your environment variables
+import usersRouter from "./routes/user_router.js"; // Include the .js extension
+import admin from "./routes/admin_router.js"; // Include the .js extension
+import quizzes from "./routes/quiz_router.js"; // Include the .js extension
+
 const app = express();
 app.use(express.json());
-require("dotenv").config();
-const cors = require("cors");
 app.use(cors());
-const users_router = require("./routes/user_router");
-const admin = require("./routes/admin_router");
-const quizzes = require("./routes/quiz_router");
 
 app.get("/", (request, response) => {
   response.json({
     api_version: "v1",
     success: true,
-    info: "Node.js, Express, And mongodb API (Developed By Deepak Gupta)",
+    info: "Node.js, Express, And MongoDB API (Developed By Deepak Gupta)",
   });
 });
-app.use("/users", users_router);
+
+app.use("/users", usersRouter);
 app.use("/admin", admin);
 app.use("/quizzes", quizzes);
 
-module.exports = app;
+export default app; // Use export default instead of module.exports

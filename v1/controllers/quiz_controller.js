@@ -1,5 +1,5 @@
-const Quiz = require("../models/quiz_model");
-const User = require("../models/user_model");
+import Quiz from "../models/quiz_model.js";
+import User from "../models/user_model.js";
 
 const get_quizzes_controller = async (req, res) => {
   const { id } = req.params;
@@ -131,8 +131,7 @@ const submit_quiz_controller = async (req, res) => {
     return res.status(500).json({ success: false, message: "Server error" });
   }
 };
-
-module.exports = {
+export default{
   create_quiz_controller,
   get_quizzes_controller,
   update_quiz_controller,

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema(
       {
         quizId: {
           type: mongoose.Schema.Types.ObjectId,
-          ref: 'Quiz',
+          ref: "Quiz",
           required: true,
         },
         timeTaken: { type: Number, required: true },
@@ -18,4 +18,4 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model('User', userSchema);
+export default mongoose.model("User", userSchema);

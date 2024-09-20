@@ -1,6 +1,6 @@
-const Admin = require("../models/admin_model");
-require("dotenv").config();
-const jwt = require("jsonwebtoken");
+import Admin from "../models/admin_model.js";
+import "dotenv/config";
+import jwt  from "jsonwebtoken";
 
 const create_admin = async (req, res) => {
   try {
@@ -37,7 +37,7 @@ const login_admin = async (req, res) => {
   }
 };
 
-module.exports = {
+export default {
   create_admin,
   login_admin,
 };

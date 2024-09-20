@@ -1,4 +1,4 @@
-const User = require("../models/user_model");
+import User from "../models/user_model.js";
 
 const create_user_controller = async (req, res) => {
   try {
@@ -53,7 +53,7 @@ const update_user_controller = async (req, res) => {
   }
 };
 
-module.exports = {
+export default {
   create_user_controller,
   get_user_controller,
   update_user_controller,
